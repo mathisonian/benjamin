@@ -1,6 +1,6 @@
 # benjamin 
 
-bitcoin trading robot
+bitcoin trading for the rest of us
 
 ## getting started
 
@@ -14,8 +14,6 @@ You will need the following to get started:
 var Benjamin = require('benjamin');
 
 var benjamin = new Benjamin({
-    market: 'mtgox',
-    currency: 'USD',
     api_key: 'MY API KEY',
     api_secret: 'MY API SECRET'
 });
@@ -29,8 +27,10 @@ benjamin can be initialized with the following options
 ```javascript
 var options = {
     market: 'mtgox', // market name according ot http://api.bitcoincharts.com/v1/markets.json
-    currency: 'USD', // currency
-    historyFile: __dirname // path to store bitcoin trade information
+    currency: 'USD', 
+    api_key: 'MY API KEY',
+    api_secret: 'MY API SECRET'
+    historyFile: __dirname // path to store bitcoin trade information, make sure you have write permission
 };
 
 var benjamin = new Benjamin(options);
@@ -55,18 +55,29 @@ benjamin.use(require('experimental-trading-strategy'));
 benjamin.simulate(); // benjamin prints out trades to console
 ```
 
+and start from a custom time
+
+```
+var start = moment([2012, 1, 1]).toDate(); 
+benjamin.simulate({
+    start: start // accepts javascript Date objects
+});
+```
+
 ### trading
 
 running live trades is just as easy
 
 ```javascript
 
-benjamin.use(require('benjamin-buy-low-sell-high')); // benjamin needs to know at least one strategy to use 
+benjamin.use(require('benjamin-buy-low-sell-high')); // provide at least one strategy
 
 
 var options = {
     // currently no options  
 };
+
+// BE CAREFUL THIS WILL MAKE TRADES
 benjamin.start(options); // and we're off!
 
 ```

@@ -82,7 +82,7 @@ benjamin.start(options); // and we're off!
 
 ```
 
-### client methods
+### static trades
 
 benjamin also exposes a common client interface (although only mtgox is currently supported).
 
@@ -93,7 +93,7 @@ this allows you to invoke trade commands directly:
 ```javascript
 
 // try to sell 10 BTC
-benjamin.client.sell(10, function(err, json) {
+benjamin.sell(10, function(err, json) {
     if(err) {
         // something went wrong
     }
@@ -104,7 +104,7 @@ benjamin.client.sell(10, function(err, json) {
 ```javascript
 
 // try to buy 10 BTC
-benjamin.client.buy(10, function(err, json) {
+benjamin.buy(10, function(err, json) {
     if(err) {
         // something went wrong
     }
@@ -115,7 +115,7 @@ benjamin.client.buy(10, function(err, json) {
 ```javascript
 
 // try to send 10 BTC to a certain address
-benjamin.client.send('BITCOIN WALLET ADDRESS', 10, function(err, json) {
+benjamin.send('BITCOIN WALLET ADDRESS', 10, function(err, json) {
     if(err) {
         // something went wrong
     }

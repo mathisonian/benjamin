@@ -138,7 +138,7 @@ module.exports = (function() {
             // do whatever you need to do prepare for trading
         },
 
-        tick: function(history, currentSuggestion) {
+        tick: function(Trades, currentSuggestion, callback) {
             // return suggested action
             // in bitcoins
             //
@@ -152,9 +152,26 @@ module.exports = (function() {
             // action
             //
             // e.g. 
-            //      return 10; // recommend to buy 10 bitcoins
-            //      return -10; // recommend to sell 10 bitcoins
+            //      callback(10); // recommend to buy 10 bitcoins
+            //      callback(-10); // recommend to sell 10 bitcoins
             //
+            // Trades is a sequelize model object, so you can 
+            // access whatever trades you want by doing something
+            // like
+            //
+            // Trades
+            //   .findAll({
+            //      where: ['timestamp > ?', timestamp]
+            //   }).success(function(trades) {
+            //      // trades is now all of the btc trades
+            //      // that occurred since timestamp
+            //      // 
+            //      // each trade has timestamp, price and amount
+            //      // of bitcoin traded
+            //   });
+            //
+            // benjamin automatically fetches and keeps the 
+            // trades up-to-date with the most recent market data
         },
 
         shouldExit: function() {

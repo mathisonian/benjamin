@@ -1,8 +1,9 @@
 {
   "name": "benjamin",
   "version": "0.0.0",
-  "main": "lib/benjamin.js",
-  "description": "bitcoin trading robot",
+  "main": "lib/benjamin",
+  "bin": "lib/benjamin.js",
+  "description": "bitcoin trading for the rest of us",
   "homepage": "https://github.com/mathisonian/benjamin",
   "bugs": "https://github.com/mathisonian/benjamin/issues",
   "author": {
@@ -26,6 +27,7 @@
   },
   "dependencies": {
     "mtgox-apiv2": "~1.0.6",
-    "lodash": "~2.3.0"
+    "lodash": "~2.3.0",
+    "sequelize": "~2.0.0-beta.1"
   }
 }

@@ -28,9 +28,11 @@ exports['benjamin'] = {
     done();
   },
   'no args': function(test) {
-    test.expect(1);
+    // test.expect(1);
     // tests here
     // test.equal(benjamin.awesome(), 'awesome', 'should be awesome.');
+
+    benjamin.watch();
     test.done();
   }
 };

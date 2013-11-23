@@ -167,7 +167,6 @@ module.exports = (function() {
 
     };
 
-
     return Strategy;
 })();
 
@@ -175,15 +174,16 @@ module.exports = (function() {
 
 
 
+## notes
 
-## todo
+### THERE IS NO WARRANTY
 
-
-
+this is young software and it will play around with your money. i take no responsibility for anything that happens. please use common sense, review all source code and
+make use of the simulation service before making real trades.
 
 ## license
 
-### THERE IS NO WARRANTY
+
 
 The MIT License (MIT)
 

@@ -38,16 +38,7 @@ var benjamin = new Benjamin(options);
 
 ### analytics & simulation
 
-```javascript
-benjamin.watch(); // keeps trade history file synced locally and periodically outputs to console
-
-// you can have it run as frequently or infrequently as you'd like
-var interval = 1000; // ms
-benjamin.watch(interval);
-```
-
-
-and you can do dry-runs of trading strategies to see how this would all play out
+You can do dry-runs of trading strategies to see how this would all play out
 
 ```javascript
 benjamin.use(require('experimental-trading-strategy'));
@@ -55,7 +46,7 @@ benjamin.use(require('experimental-trading-strategy'));
 benjamin.simulate(); // benjamin prints out trades to console
 ```
 
-and start from a custom time
+and start from a custom time in the past
 
 ```
 var start = moment([2012, 1, 1]).toDate(); 

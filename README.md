@@ -4,11 +4,26 @@ bitcoin trading for the rest of us
 
 ## getting started
 
+### installation
+
 Install the module with: `npm install benjamin`
+
+### dependencies
+
+#### database
+
+Benjamin uses the [sequelize.js](http://sequelizejs.com/) ORM as its backing db. You can use with sqlite, mysql, or postgres.
+
+You will need to install your specific database client in addition to benjamin. (e.g. postgres needs `pg`, sqlite needs `sqlite3`)
+
+#### API credentials
 
 You will need the following to get started:
 * api key for desired btc market (currently only mtgox is supported)
 * at least one trading strategy (see below)
+
+
+#### creating benjamin
 
 ```javascript
 var Benjamin = require('benjamin');

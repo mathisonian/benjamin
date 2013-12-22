@@ -29,8 +29,10 @@ You will need the following to get started:
 var Benjamin = require('benjamin');
 
 var benjamin = new Benjamin({
-    api_key: 'MY API KEY',
-    api_secret: 'MY API SECRET'
+    client: {
+        api_key: 'MY API KEY',
+        api_secret: 'MY API SECRET'
+    }
 });
 ```
 

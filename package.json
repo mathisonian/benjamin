@@ -1,16 +1,16 @@
 {
   "name": "benjamin",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "lib/benjamin",
-  "bin": "lib/benjamin.js",
+  "bin": {
+    "benjamin": "lib/benjamin.js"
+  },
   "description": "bitcoin trading for the rest of us",
   "homepage": "https://github.com/mathisonian/benjamin",
-  "bugs": "https://github.com/mathisonian/benjamin/issues",
-  "author": {
-    "name": "Matthew Conlen",
-    "email": "mc@mathisonian.com",
-    "url": "http://mathisonian.com"
+  "bugs": {
+    "url": "https://github.com/mathisonian/benjamin/issues"
   },
+  "author": "Matthew Conlen <mc@mathisonian.com> (http://mathisonian.com)",
   "repository": {
     "type": "git",
     "url": "https://github.com/mathisonian/benjamin"
@@ -32,5 +32,19 @@
     "progress": "~1.1.2",
     "carrier": "~0.1.13",
     "async": "~0.2.9"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bitcoin",
+    "BTC",
+    "btc",
+    "trading",
+    "mtgox"
+  ],
+  "license": "MIT"
 }

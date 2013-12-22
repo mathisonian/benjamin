@@ -27,16 +27,24 @@ benjamin can be initialized with the following options
 ```javascript
 var options = {
     market: 'mtgox', // market name according ot http://api.bitcoincharts.com/v1/markets.json
-    currency: 'USD', 
-    api_key: 'MY API KEY',
-    api_secret: 'MY API SECRET'
-    historyFile: __dirname // path to store bitcoin trade information, make sure you have write permission
+    currency: 'USD',
+    client: {
+        api_key: 'MY API KEY',
+        api_secret: 'MY API SECRET'
+    },
+    database: { // sequelize.js options
+        dialect: 'sqlite', // sqlite, postgres, or mysql
+        database: 'database-name',
+        username: 'username',
+        password: 'password',
+        options: {} // other sequelize options: http://sequelizejs.com/docs/latest/usage#options
+    }
 };
 
 var benjamin = new Benjamin(options);
 ```
 
-### analytics & simulation
+### simulation
 
 You can do dry-runs of trading strategies to see how this would all play out
 
@@ -48,12 +56,24 @@ benjamin.simulate(); // benjamin prints out trades to console
 
 and start from a custom time in the past
 
-```
-var start = moment([2012, 1, 1]).toDate(); 
+```js
+var start = moment([2012, 1, 1]).format('X'); 
 benjamin.simulate({
-    start: start // accepts javascript Date objects
+    start: start // UNIX-timestamp
 });
 ```
+
+or a custom interval:
+
+```js
+var start = moment([2012, 1, 1]).format('X');
+var end = moment([2012, 12, 1]).format('X');
+benjamin.simulate({
+    start: start, // UNIX-timestamps
+    end: end
+});
+```
+
 
 ### trading
 
@@ -72,6 +92,15 @@ var options = {
 benjamin.start(options); // and we're off!
 
 ```
+
+### analytics
+
+Benjamin can also be used as an analytics tool. Since he automatically deals with keeping the
+trades database in sync for you, you can write analytics strategies.
+
+Just write you analysis code in the form of a strategy (as shown below), and callback with a suggested
+trade amount of `0`.
+
 
 ### static trades
 
@@ -188,6 +217,11 @@ module.exports = (function() {
 
 this is young software and it will play around with your money. i take no responsibility for anything that happens. please use common sense, review all source code and
 make use of the simulation service before making real trades.
+
+### TODO
+
+* Currently all of the timestamps in Benjamin are UNIX-timestamps, which aren't very cool or nice to work with. The reason is that the bitcoin charts API operates using unix timestamps
+and this way we don't have to do a ton of conversion. I would like to hide this from the user at some point and allow more conventional time formats as input.
 
 ## license
 

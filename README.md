@@ -1,6 +1,8 @@
 # benjamin 
 
-bitcoin trading for the rest of us
+bitcoin trading bot and analytics platform.
+
+Benjamin is designed to be an easy to use bitcoin trading bot that does all of the tedious work for you. Benjamin does all of the tedious work, you just write a plug-and-play strategy for how to trade.
 
 ## getting started
 
@@ -103,6 +105,10 @@ benjamin.use(require('benjamin-buy-low-sell-high')); // provide at least one str
 
 var options = {
     interval: 15 * 60 // in seconds, defaults to 15 minutes
+                      // the interval option defines approximately
+                      // how often benjamin will poll strategies
+                      // for their suggested trades and then 
+                      // subsequently execute the trades.
 };
 
 // BE CAREFUL THIS WILL MAKE TRADES

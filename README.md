@@ -102,7 +102,7 @@ benjamin.use(require('benjamin-buy-low-sell-high')); // provide at least one str
 
 
 var options = {
-    // currently no options  
+    interval: 15 * 60 // in seconds, defaults to 15 minutes
 };
 
 // BE CAREFUL THIS WILL MAKE TRADES
